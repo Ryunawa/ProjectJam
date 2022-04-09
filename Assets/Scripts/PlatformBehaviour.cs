@@ -2,18 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlatformBehaviour : MonoBehaviour
 {
-    private Animation _anim;
+    //private Animation _anim;
     //public Animator animator;
-    
-    
+    [SerializeField] private float respawnTime;
+    [SerializeField] private UnityEvent<PlatformBehaviour, float> onPlatformDestroyed;
+
     // Start is called before the first frame update
     void Start()
     {
         //animator.enabled = false;
-        _anim = GetComponent<Animation>();
+        //_anim = GetComponent<Animation>();
+        onPlatformDestroyed = GameManager.Instance.GetPlatformEventDestroyed;
     }
 
     // Update is called once per frame
@@ -24,15 +27,17 @@ public class PlatformBehaviour : MonoBehaviour
 
     private void BreakingIcePlatform()
     {
-        Destroy((gameObject));
+        onPlatformDestroyed.Invoke(this, respawnTime);
+        //Destroy((gameObject));
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.collider.CompareTag("Player"))
         {
+            BreakingIcePlatform();
             Debug.Log("Player step on breakable ice");
-            _anim.Play("IcePlatform_Break");
+            //_anim.Play("IcePlatform_Break");
         }
     }
 }
