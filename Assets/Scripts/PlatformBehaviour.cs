@@ -16,13 +16,7 @@ public class PlatformBehaviour : MonoBehaviour
     {
         //animator.enabled = false;
         //_anim = GetComponent<Animation>();
-        onPlatformDestroyed = GameManager.Instance.GetPlatformEventDestroyed;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        onPlatformDestroyed = PlatformManager.Instance.onPlatformDestroyed;
     }
 
     private void BreakingIcePlatform()
@@ -33,11 +27,9 @@ public class PlatformBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.collider.CompareTag("Player"))
-        {
-            BreakingIcePlatform();
-            Debug.Log("Player step on breakable ice");
-            //_anim.Play("IcePlatform_Break");
-        }
+        if (!col.collider.CompareTag("Player")) return;
+        BreakingIcePlatform();
+        Debug.Log("Player step on breakable ice");
+        //_anim.Play("IcePlatform_Break");
     }
 }
