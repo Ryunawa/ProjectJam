@@ -10,6 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cd1c3eb2a63cae49b2c2b4c39d4850a, type: 3}
-  m_Name: Dialog 1
+  m_Name: Ryunawa
   m_EditorClassIdentifier: 
-  _text: dbdfgfg
+  author: Ryunawa
+  _text: Aled
+  _leftImage: {fileID: 0}
+  _rightImage: {fileID: 0}
