@@ -10,7 +10,7 @@ public class BoulderBehaviour : MonoBehaviour
 {
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private GameObject _boulderDestroyer;
-    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision.gameObject.name);
@@ -18,6 +18,11 @@ public class BoulderBehaviour : MonoBehaviour
         if (collision.gameObject == _boulderDestroyer)
         {
             ResetPos();
+        }
+        else if(collision.gameObject.CompareTag("Player"))
+        {
+            GetComponent<DialogTrigger>().Trigger();
+            GameManager.Instance.Respawn();
         }
     }
 

@@ -7,15 +7,9 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
 
     public float runSpeed = 40.0f;
-    float horizontalMove = 0.0f;
-    bool jump = false;
-    bool crouch = false;
-    
-    
-    void start()
-    {
-        
-    }
+    float horizontalMove;
+    bool jump;
+    bool crouch;
 
     void Update()
     {

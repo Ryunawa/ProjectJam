@@ -31,7 +31,8 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-
+    [SerializeField] private UIControl _uiControl;
+        
     void Start()
     {
         player.GetComponent<Transform>();
@@ -44,4 +45,9 @@ public class GameManager : MonoBehaviour
     }
 
     private void Setup() {}
+
+    public void AddDialogs(GameDialog[] dialog)
+    {
+        _uiControl.AddDialog(dialog);
+    }
 }
