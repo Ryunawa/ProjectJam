@@ -6,37 +6,31 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    #region Singleton
 
-    private void Awake()
-    {
-        if(Instance == null)
+    private static GameManager _instance;
+        
+        public static GameManager Instance => _instance;
+    
+        private void Awake()
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            if(_instance == null)
+            {
+                _instance = this;
+                _instance.Setup();
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
-        else
+
+        #endregion
+
+        private void Setup()
         {
-            Destroy(gameObject);
+            throw new NotImplementedException();
         }
-    }
-
-    [SerializeField] private PlatformManager _platformManager;
-
-    public UnityEvent<PlatformBehaviour, float> GetPlatformEventDestroyed => _platformManager.onPlatformDestroyed;
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
-    private void PlatformRespawn(Vector2 transform)
-    {
-        
-    }
+    
 }
