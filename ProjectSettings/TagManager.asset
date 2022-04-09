@@ -9,10 +9,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Background
+  - 
   - Water
   - UI
-  - Decors
+  - 
   - 
   - 
   - Obstacles
@@ -41,4 +41,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackgroundCities
+    uniqueID: 401929089
+    locked: 0
+  - name: Player
+    uniqueID: 1765725299
     locked: 0
