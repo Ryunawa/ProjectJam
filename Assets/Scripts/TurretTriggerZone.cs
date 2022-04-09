@@ -6,7 +6,7 @@ public class TurretTriggerZone : MonoBehaviour
 {
     public float detectionRange = 20.0f;
 
-    private SquirrelBehaviour _SquirrelTurr;
+    private SquirrelBehaviour _squirrelTurr;
     private TurretBehaviour _turrScript;
     private Transform _player;
 
@@ -14,7 +14,7 @@ public class TurretTriggerZone : MonoBehaviour
     {
         _player = GameObject.Find("Player").transform;
         _turrScript = GetComponent<TurretBehaviour>();
-        _SquirrelTurr = GetComponent<SquirrelBehaviour>();
+        _squirrelTurr = GetComponent<SquirrelBehaviour>();
     }
 
     void Update()
@@ -23,12 +23,12 @@ public class TurretTriggerZone : MonoBehaviour
         if (distance <= detectionRange)
         {
             _turrScript.IsShooting = true;
-            _SquirrelTurr.StartAnimationShooting(true);
+            _squirrelTurr.StartAnimationShooting(true);
         }
         else
         {
             _turrScript.IsShooting = false;
-            _SquirrelTurr.StartAnimationShooting(false);
+            _squirrelTurr.StartAnimationShooting(false);
 
         }
     }

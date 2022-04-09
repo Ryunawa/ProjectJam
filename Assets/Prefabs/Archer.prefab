@@ -42,8 +42,8 @@ GameObject:
   - component: {fileID: 5985843712625081787}
   - component: {fileID: 5985843712625081780}
   - component: {fileID: 5985843712625081785}
-  - component: {fileID: 595811179}
   - component: {fileID: 595811177}
+  - component: {fileID: 941359483}
   m_Layer: 9
   m_Name: Archer
   m_TagString: Untagged
@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 5985843712625081782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -17.61, y: -6.31, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
   - {fileID: 5985843710826741837}
   m_Father: {fileID: 0}
@@ -146,25 +146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRange: 20
---- !u!95 &595811179
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5985843712625081782}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 815e5fab154f94b4f94112ffdb4e23c7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &595811177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,4 +159,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 3135151843820843122, guid: 88b4c679fdbc95d46a39f3748a3fdace, type: 3}
-  anim: {fileID: 595811179}
+  anim: {fileID: 941359483}
+--- !u!95 &941359483
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5985843712625081782}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8ea92160f00ba0242965e1fe321bc9e8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
