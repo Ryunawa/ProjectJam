@@ -5,22 +5,31 @@ using UnityEngine;
 public class TurretTriggerZone : MonoBehaviour
 {
     public float detectionRange = 20.0f;
-   
+
+    private SquirrelBehaviour _squirrelTurr;
     private TurretBehaviour _turrScript;
     private Transform _player;
 
-    private void Start()
+    void Start()
     {
         _player = GameObject.Find("Player").transform;
-        _turrScript = this.GetComponent<TurretBehaviour>();
+        _turrScript = GetComponent<TurretBehaviour>();
+        _squirrelTurr = GetComponent<SquirrelBehaviour>();
     }
 
-    private void Update()
+    void Update()
     {
         float distance = Vector2.Distance(_player.transform.position, this.transform.position);
         if (distance <= detectionRange)
+        {
             _turrScript.IsShooting = true;
+            _squirrelTurr.StartAnimationShooting(true);
+        }
         else
+        {
             _turrScript.IsShooting = false;
+            _squirrelTurr.StartAnimationShooting(false);
+
+        }
     }
 }
