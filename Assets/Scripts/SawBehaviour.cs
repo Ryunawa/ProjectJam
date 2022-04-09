@@ -25,7 +25,7 @@ public class SawBehaviour : MonoBehaviour
     {
         _sawPattern.Add(waypointsFirstPattern);
 
-        //_target = waypointsFirstPattern[0];
+        _target = waypointsFirstPattern[0];
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class SawBehaviour : MonoBehaviour
     {
         if (_isEnabled)
         {
-            //SawMovement();
+            SawMovement();
             transform.Rotate(0, 0, _rotSpeed * Time.deltaTime);
         }
     } 
