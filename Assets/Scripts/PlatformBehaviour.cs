@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class PlatformBehaviour : MonoBehaviour
 {
-    //private Animation _anim;
+    private Animation _anim;
     //public Animator animator;
     [SerializeField] private float respawnTime;
     [SerializeField] private UnityEvent<PlatformBehaviour, float> onPlatformDestroyed;
@@ -15,7 +15,7 @@ public class PlatformBehaviour : MonoBehaviour
     void Start()
     {
         //animator.enabled = false;
-        //_anim = GetComponent<Animation>();
+        _anim = GetComponent<Animation>();
         onPlatformDestroyed = PlatformManager.Instance.onPlatformDestroyed;
     }
 
@@ -28,8 +28,8 @@ public class PlatformBehaviour : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (!col.collider.CompareTag("Player")) return;
-        BreakingIcePlatform();
+        //BreakingIcePlatform();
         Debug.Log("Player step on breakable ice");
-        //_anim.Play("IcePlatform_Break");
+        _anim.Play("IcePlatform_Break");
     }
 }

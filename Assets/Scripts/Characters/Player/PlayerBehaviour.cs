@@ -44,15 +44,7 @@ public class PlayerBehaviour : MonoBehaviour
         _playerMovement.enabled = false;
         //_playerCombat.enabled = false;
     }
-
-    /*
-    private void OnAnimationWinEnd()
-    {
-        // Open end menu
-        MenuEnd.GetComponent<MenuEnd>().MenuEndWin();
-    }
-    */
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Respawn"))
