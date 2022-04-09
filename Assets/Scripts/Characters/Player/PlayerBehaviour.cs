@@ -10,8 +10,6 @@ public class PlayerBehaviour : MonoBehaviour
     private Animator _shadowAnimator;
     private PlayerMovement _playerMovement;
     //private PlayerCombat _playerCombat;
-    private static int _endCount;
-
     private void Start()
     {
         _playerMovement = this.GetComponent<PlayerMovement>();
@@ -19,8 +17,6 @@ public class PlayerBehaviour : MonoBehaviour
 
         _animator = this.GetComponent<Animator>();
         _shadowAnimator = GameObject.Find("PlayerShadow").GetComponent<Animator>();
-
-        _endCount = 0;
     }
 
     public void Lose()
