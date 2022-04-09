@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject respawnPoint;
     public GameObject player;
+
     private void Awake()
     {
         if(_instance == null)
@@ -30,21 +31,17 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+
     void Start()
     {
         player.GetComponent<Transform>();
         respawnPoint.GetComponent<Transform>();
-            ;
-    }
-
-    private void Setup()
-    {
-        throw new NotImplementedException();
     }
 
     public void Respawn()
     {
         player.transform.position = respawnPoint.transform.position;
     }
-    
+
+    private void Setup() {}
 }
