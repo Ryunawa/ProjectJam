@@ -48,3 +48,6 @@ TagManager:
   - name: Player
     uniqueID: 1765725299
     locked: 0
+  - name: Obstacles
+    uniqueID: 3133071627
+    locked: 0
