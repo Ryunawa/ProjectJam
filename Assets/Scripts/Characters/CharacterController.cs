@@ -65,7 +65,7 @@ public class CharacterController : MonoBehaviour
 	public void Move(float move, bool crouch, bool jump)
 	{
 		// If crouching, check to see if the character can stand up
-		if (crouch)
+		if (!crouch && m_wasCrouching)
 		{
 			// If the character has a ceiling preventing them from standing up, keep them crouching
 			if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
@@ -107,9 +107,20 @@ public class CharacterController : MonoBehaviour
 			}
 
 			// Move the character by finding the target velocity
-			Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
-			// And then smoothing it out and applying it to the character
-			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+			
+			if (m_Rigidbody2D.IsTouchingLayers(LayerMask.GetMask("IcePlatform")))
+			{
+				// ice skating
+				//Debug.Log("Skating "+move);
+				m_Rigidbody2D.AddForce(new Vector2(move, 0));
+			}
+			else
+			{
+				//Debug.Log("Not skating "+move);
+				Vector3 targetVelocity = new Vector2(move, m_Rigidbody2D.velocity.y);
+				// And then smoothing it out and applying it to the character
+				m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+			}
 
 			// If the input is moving the player right and the player is facing left...
 			if (move > 0 && !m_FacingRight)
@@ -129,7 +140,7 @@ public class CharacterController : MonoBehaviour
 		{
 			// Add a vertical force to the player.
 			m_Grounded = false;
-			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce),  ForceMode2D.Impulse);
 		}
 	}
 
