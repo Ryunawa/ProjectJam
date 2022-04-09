@@ -10,27 +10,24 @@ public class GameManager : MonoBehaviour
 
     private static GameManager _instance;
         
-        public static GameManager Instance => _instance;
-    
-        private void Awake()
-        {
-            if(_instance == null)
-            {
-                _instance = this;
-                _instance.Setup();
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
+    public static GameManager Instance => _instance;
 
-        #endregion
-
-        private void Setup()
+    private void Awake()
+    {
+        if(_instance == null)
         {
-            throw new NotImplementedException();
+            _instance = this;
+            _instance.Setup();
+            DontDestroyOnLoad(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    #endregion
+
+    private void Setup() {}
     
 }

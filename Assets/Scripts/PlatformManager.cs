@@ -31,7 +31,6 @@ public class PlatformManager : MonoBehaviour
 
     private void Setup()
     {
-        Debug.Log("je setup");
         respawnDelay = new Dictionary<PlatformBehaviour, float>();
         onPlatformDestroyed = new UnityEvent<PlatformBehaviour, float>();
         onPlatformDestroyed.AddListener(AddPlatformDelay);
