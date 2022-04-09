@@ -25,6 +25,7 @@ public class SquirrelBehaviour : TurretBehaviour
         
     }
 
+
     public void StartAnimationShooting(bool isShootingAnim)
     {
         anim.SetBool("IsShooting", isShootingAnim);
