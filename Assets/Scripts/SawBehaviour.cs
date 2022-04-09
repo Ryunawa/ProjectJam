@@ -13,7 +13,7 @@ public class SawBehaviour : MonoBehaviour
 
     [SerializeField]
     private float _speed = 20.0f;
-    private float _rotSpeed = 360.0f;
+    private float _rotSpeed = -360.0f;
     private bool _isEnabled = true;
 
     [SerializeField]

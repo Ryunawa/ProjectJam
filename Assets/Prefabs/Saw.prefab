@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 7434297077409056673}
   - component: {fileID: 7844312857975219122}
   - component: {fileID: -6750216444338552597}
-  - component: {fileID: 184827998917485391}
-  - component: {fileID: 2348536173021892971}
+  - component: {fileID: -1441198762876364919}
+  - component: {fileID: 7440324033481126373}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Saw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4368130187050236958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -83.71, y: 48.16, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c82fed1669d1eb4ca2d2c68a7986673, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,7 +106,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &184827998917485391
+--- !u!114 &-1441198762876364919
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,12 +115,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4368130187050236958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 468e0ce2051f8cd4eb292fbc40e29def, type: 3}
+  m_Script: {fileID: 11500000, guid: d528bc9a350b24e40bbde2915ea1c208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayer: 1
---- !u!61 &2348536173021892971
-BoxCollider2D:
+  waypointsFirstPattern: []
+  _speed: 8
+  _spriteOff: {fileID: 0}
+--- !u!58 &7440324033481126373
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -129,19 +131,9 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.025412917, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 1.5695871
