@@ -13,27 +13,27 @@ public class LifeDisplay : MonoBehaviour
 
     public void UpdateLifeDisplay(int currentLife)
     {
-        int maxLife = _life.Length * 2;
-        
-        if (currentLife >= maxLife || currentLife <= 0)
-            currentLife = maxLife / 2; 
-        
-        int firstEmptyHeartIndex = currentLife / 2;
+        if(currentLife < 0 || currentLife > _life.Length * 2) return;
 
-        for (int i = 0; i < firstEmptyHeartIndex; i++)
+        int numberOfFull = currentLife / 2;
+
+        bool demi = (currentLife % 2 != 0);
+
+        for (int i = 0; i < numberOfFull; i++)
         {
+            Debug.Log("show full heart : " + _life[i].name);
             _life[i].sprite = _fullHeart;
         }
 
-        if (currentLife % 2 == 1)
+        if (demi)
         {
-            _life[firstEmptyHeartIndex].sprite = _halfHeart;
-
-            firstEmptyHeartIndex++;
+            Debug.Log("show demi heart : " + _life[numberOfFull].name);
+            _life[numberOfFull].sprite = _halfHeart;
         }
-
-        for (int i = firstEmptyHeartIndex; i < _life.Length; i++)
+        
+        for (int i = numberOfFull + (demi ? 1 : 0); i < _life.Length; i++)
         {
+            Debug.Log("show empty heart : " + _life[i].name);
             _life[i].sprite = _emptyHeart;
         }
     }
