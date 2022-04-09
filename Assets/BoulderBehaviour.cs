@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(CircleCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class BoulderBehaviour : MonoBehaviour
 {
@@ -11,6 +12,6 @@ public class BoulderBehaviour : MonoBehaviour
     
     private void Awake()
     {
-        GetComponent<SpriteRenderer>().sprite = _sprite;
+        //GetComponent<SpriteRenderer>().sprite = _sprite;
     }
 }
