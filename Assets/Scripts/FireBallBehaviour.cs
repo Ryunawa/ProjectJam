@@ -9,7 +9,7 @@ public class FireBallBehaviour : MonoBehaviour
 
     private void Start()
     {
-        _rb = this.GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
 
         _rb.velocity = transform.right * _speed;
     }
