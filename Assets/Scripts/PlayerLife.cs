@@ -6,15 +6,16 @@ using UnityEngine;
 public class PlayerLife : MonoBehaviour
 {
     [SerializeField] private float _timeBetweenRegenTicks;
-    [SerializeField] private float _timeSinceLastRegenTick;
+    private float _timeSinceLastRegenTick;
 
     [SerializeField] private int _startLifePoints;
-    [SerializeField] private int _lifePoints;
-    [SerializeField] private int _maxLifePoints;
+    private int _lifePoints;
+    private int _maxLifePoints;
 
     private void Start()
     {
         _lifePoints = _startLifePoints;
+        _maxLifePoints = _startLifePoints;
     }
 
     private void Update()

@@ -81,7 +81,7 @@ public class SawBehaviour : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<PlayerBehaviour>().Lose();
+            GetComponent<DamageDealer>().DealDamage(collision.GetComponent<PlayerLife>());
         }
     }
 }

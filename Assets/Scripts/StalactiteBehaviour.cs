@@ -29,6 +29,10 @@ public class StalactiteBehaviour: MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            GetComponent<DamageDealer>().DealDamage(col.gameObject.GetComponent<PlayerLife>());
+        }
         Debug.Log("Cassé !");
         Destroy(gameObject);
     }
