@@ -27,19 +27,16 @@ public class LifeDisplay : MonoBehaviour
 
         for (int i = 0; i < numberOfFull; i++)
         {
-            Debug.Log("show full heart : " + _life[i].name);
             _life[i].sprite = _fullHeart;
         }
 
         if (demi)
         {
-            Debug.Log("show demi heart : " + _life[numberOfFull].name);
             _life[numberOfFull].sprite = _halfHeart;
         }
         
         for (int i = numberOfFull + (demi ? 1 : 0); i < _life.Length; i++)
         {
-            Debug.Log("show empty heart : " + _life[i].name);
             _life[i].sprite = _emptyHeart;
         }
     }
