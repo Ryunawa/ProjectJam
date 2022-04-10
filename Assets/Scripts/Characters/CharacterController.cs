@@ -21,6 +21,9 @@ public class CharacterController : MonoBehaviour
 	private Vector3 m_Velocity = Vector3.zero;
 	[SerializeField] private bool _isJumping;
 	[SerializeField] private bool _startedJumping;
+	[SerializeField] private bool _canAttack;
+	[SerializeField] private bool _isAttacking;
+	public bool IsAttacking => _isAttacking || _notSoFramePerfect >= 0f;
 	
 	
 
@@ -37,6 +40,9 @@ public class CharacterController : MonoBehaviour
 	public BoolEvent OnCrouchEvent;
 	private bool m_wasCrouching = false;
 
+	[SerializeField] private float _notSoFramePerfect;
+	[SerializeField] private float _attackDuration;
+
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -48,6 +54,18 @@ public class CharacterController : MonoBehaviour
 
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
+	}
+
+	private void Update()
+	{
+		if (_isAttacking)
+		{
+			_notSoFramePerfect = _attackDuration;
+			_isAttacking = false;
+		}
+
+		if(_notSoFramePerfect >= 0f)
+			_notSoFramePerfect-= Time.deltaTime;
 	}
 
 	private void FixedUpdate()
@@ -70,7 +88,6 @@ public class CharacterController : MonoBehaviour
 			}
 		}
 	}
-
 
 	public void Move(float move, bool crouch, bool jump, bool physicalAttack, bool magicAttack)
 	{
@@ -169,6 +186,9 @@ public class CharacterController : MonoBehaviour
 			_isJumping = true;
 			_startedJumping = false;
 		}
+
+		_isAttacking = leftAttack;
+		
 		playerAnimator.SetBool("isJumping", _isJumping);
 		playerAnimator.SetBool("isAttacking", physicalAttack);
 		playerAnimator.SetBool("isCasting", magicAttack);
@@ -184,5 +204,12 @@ public class CharacterController : MonoBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+	}
+
+	public bool IsFacing(Vector3 pos)
+	{
+		Vector3 myPos = transform.position;
+		return (m_FacingRight && myPos.x <= pos.x) ||
+		       (!m_FacingRight && myPos.x >= pos.x);
 	}
 }
