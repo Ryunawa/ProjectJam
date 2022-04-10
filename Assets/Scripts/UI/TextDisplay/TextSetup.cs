@@ -1,4 +1,4 @@
-using UnityEditor.U2D;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,7 +6,7 @@ public abstract class TextSetup : MonoBehaviour
 {
     [SerializeField] protected TextSetup otherSetup;
 
-    [SerializeField] protected Text _text;
+    [SerializeField] protected TextMeshProUGUI _text;
     [SerializeField] private Image[] _images;
 
     protected void SetSprites(Sprite leftImage, Sprite rightImage)

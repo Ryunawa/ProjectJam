@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37eb83af7d99ab846baf3156a456d929, type: 3}
+  m_Name: SF_Q_3
+  m_EditorClassIdentifier: 
+  author: Heladas
+  _text: "Cela serait pour la premi\xE8re fois en plusieurs si\xE8cles que nous confierions
+    notre destin  \xE0 un \xE9trangers. Puis-je r\xE9ellement vous faire confiance
+    ?"
+  _leftImage: {fileID: 0}
+  _rightImage: {fileID: 21300000, guid: bcf3d3f2f0e825f41bd1b5264c749dcb, type: 3}
+  _goodEnd: 0
+  _path: 0
+  _firstChoice: Je ne peux pas vous promettre une victoire mais je peux vous assurez
+    que je me battrai pour vous et votre peuple.
+  _secondChoice: Donnez moi les bottes ensuite on verra.
+  _validChoice: 1
+  _next:
+  - {fileID: 11400000, guid: 95d8dbe9c9ac1854aae61f991108aba0, type: 2}
+  - {fileID: 11400000, guid: 3b9dd253c40b71b4386ac937b555d6db, type: 2}

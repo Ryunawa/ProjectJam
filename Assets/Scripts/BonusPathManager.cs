@@ -28,45 +28,37 @@ public class BonusPathManager : MonoBehaviour
 
     private void Setup()
     {
-        _pathProgress = new Dictionary<BonusPath.BonusPathValue, int>
+        _pathProgress = new Dictionary<BonusPath.BonusPathValue, bool>
         {
-            { BonusPath.BonusPathValue.Snowflake, 0 },
-            { BonusPath.BonusPathValue.Sword, 0 },
-            { BonusPath.BonusPathValue.Boots, 0 },
-            { BonusPath.BonusPathValue.Chococoin, 0 }
+            { BonusPath.BonusPathValue.Snowflake, false },
+            { BonusPath.BonusPathValue.Sword, false },
+            { BonusPath.BonusPathValue.Boots, false },
+            { BonusPath.BonusPathValue.Chococoin, false }
         };
     }
 
-    public bool CanUse(BonusPath.BonusPathValue value) => _pathProgress[value] >= 2;
+    public bool CanUse(BonusPath.BonusPathValue value) => _pathProgress[value];
     
     #region BonusPaths
-
-    [SerializeField] private List<GameDialog> _failedAnswer;
     
-    [SerializeField] private int _pathLength;
-    private Dictionary<BonusPath.BonusPathValue, int> _pathProgress;
+    private Dictionary<BonusPath.BonusPathValue, bool> _pathProgress;
 
-    public void Answered(BonusPath.BonusPathValue path, bool answeredCorrectly, GameChoice next)
+    public void Answered(GameText next)
     {
-        if (answeredCorrectly)
-        {
-            _pathProgress[path]++;
+        GameManager.Instance.AddGameText(next);
+    }
+    
+    public void Answered(BonusPath.BonusPathValue path, bool goodEnd)
+    {
+        Debug.Log($"[{path.ToString()}] End dialogue: good end? ({goodEnd})");
+        _pathProgress[path] = goodEnd;
 
-            if (_pathProgress[path] < _pathLength)
-                GameManager.Instance.AddGameChoice(next);
-            else if(_pathProgress[path] == _pathLength)
-            {
-                GameManager.Instance.NextText();
-                GameManager.Instance.Light((int)path);
-            }
-        }
+        if (goodEnd)
+            GameManager.Instance.Light((int)path);
         else
-        {
-            _pathProgress[path] = 0;
-            
             GameManager.Instance.Respawn();
-            GameManager.Instance.AddGameDialog(_failedAnswer[(int)path]);
-        }
+        
+        GameManager.Instance.NextText();
     }
 
     #endregion

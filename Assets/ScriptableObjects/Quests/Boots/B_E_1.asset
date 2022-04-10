@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd1c3eb2a63cae49b2c2b4c39d4850a, type: 3}
+  m_Name: B_E_1
+  m_EditorClassIdentifier: 
+  author: Sylvas
+  _text: "Et bien dans ce cas l\xE0 partez ! "
+  _leftImage: {fileID: 21300000, guid: f994ed51607611242af32560bc24fe5f, type: 3}
+  _rightImage: {fileID: 0}
+  _goodEnd: 0
+  _path: 2
+  _next: {fileID: 11400000, guid: 5343265fde335b948b414da722b870ed, type: 2}

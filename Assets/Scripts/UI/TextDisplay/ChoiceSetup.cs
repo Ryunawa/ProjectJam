@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,12 +12,12 @@ public class ChoiceSetup : TextSetup
     
     [Space]
     
-    [SerializeField] private Text _firstChoiceText;
+    [SerializeField] private TextMeshProUGUI _firstChoiceText;
     [SerializeField] private GameObject _firstChoiceButton;
     
     [Space]
     
-    [SerializeField] private Text _secondChoiceText;
+    [SerializeField] private TextMeshProUGUI _secondChoiceText;
     [SerializeField] private GameObject _secondChoiceButton;
     
     public void Setup(GameChoice gc)

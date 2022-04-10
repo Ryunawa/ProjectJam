@@ -35,26 +35,25 @@ public class TextDisplay : MonoBehaviour
 
     public void Next()
     {
-        if (_texts.Count != 0)
-        {
-            GameText gt = _texts[0];
-
-            switch (gt)
-            {
-                case GameDialog { } dialog:
-                    _dialogSetup.Setup(dialog);
-                    break;
-                case GameChoice { } choice:
-                    _choiceSetup.Setup(choice);
-                    break;
-            }
-
-            _texts.RemoveAt(0);
-        }
-        else
+        if (_texts.Count == 0)
         {
             TogglePanel(false);
+            return;
         }
+        
+        GameText gt = _texts[0];
+
+        switch (gt)
+        {
+            case GameDialog { } dialog:
+                _dialogSetup.Setup(dialog);
+                break;
+            case GameChoice { } choice:
+                _choiceSetup.Setup(choice);
+                break;
+        }
+
+        _texts.RemoveAt(0);
     }
 
 

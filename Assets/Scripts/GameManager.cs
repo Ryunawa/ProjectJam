@@ -65,4 +65,10 @@ public class GameManager : MonoBehaviour
     public void UpdateLifeDisplay(int lifePoints) => _uiControl.UpdateLifeDisplay(lifePoints);
 
     public void NextText() => _uiControl.NextText();
+
+    public void AddGameText(GameText next)
+    {
+        GameText[] texts = { next };
+        AddGameTexts(texts);
+    }
 }
