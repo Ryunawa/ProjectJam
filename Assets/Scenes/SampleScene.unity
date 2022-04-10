@@ -5087,6 +5087,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 469175151}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c6e90fdac7ee7409480ef295968c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 2
+--- !u!114 &469175157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469175151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7238e9688c515b4784bf2c8faf75e73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -9054,7 +9067,7 @@ PrefabInstance:
     - target: {fileID: 7000049896781969149, guid: c80b6e274cb7dc4488e4bda4e4792d1c, type: 3}
       propertyPath: _trigger
       value: 
-      objectReference: {fileID: 469175152}
+      objectReference: {fileID: 469175157}
     - target: {fileID: 7000049897075471108, guid: c80b6e274cb7dc4488e4bda4e4792d1c, type: 3}
       propertyPath: m_Name
       value: BoulderSystem

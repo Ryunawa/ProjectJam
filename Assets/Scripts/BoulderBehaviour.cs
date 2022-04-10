@@ -21,6 +21,7 @@ public class BoulderBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            GetComponent<DamageDealer>().DealDamage(collision.gameObject.GetComponent<PlayerLife>());
             GameManager.Instance.Respawn();
             _trigger.Trigger();
         }
