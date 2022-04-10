@@ -18,7 +18,7 @@ public class TurretBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _firePoint = transform.Find("FirePoint");
+        _firePoint = GetComponentInChildren<Transform>();
         _lastShot = Time.time;
     }
 
@@ -27,6 +27,16 @@ public class TurretBehaviour : MonoBehaviour
     {
         if(Time.time - _lastShot > _fireCooldown && _isShooting)
         {
+            if(projectile)
+                Debug.Log(name + " " + projectile.name);
+            else
+                Debug.Log("HA");
+            
+            if(_firePoint)
+                Debug.Log(_firePoint);
+            else
+                Debug.Log("AH");
+            
             Instantiate(projectile, _firePoint.position, _firePoint.rotation);
             _lastShot = Time.time;
         }
