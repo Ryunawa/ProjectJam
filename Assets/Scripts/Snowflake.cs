@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Snowflake : MonoBehaviour
+public class Snowflake : Projectile
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
+        if (collision.CompareTag("Transformable"))
+        {
+            collision.gameObject.SetActive(false);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            TemporaryPlatform tp = Instantiate(GameManager.Instance.Platform, collision.transform).GetComponent<TemporaryPlatform>();
+            tp.SetTimer(collision.gameObject);
+        }
     }
 }

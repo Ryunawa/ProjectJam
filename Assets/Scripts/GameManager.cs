@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Object = UnityEngine.Object;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,19 +29,20 @@ public class GameManager : MonoBehaviour
 
     #endregion
     
-    public GameObject respawnPoint;
-    public GameObject player;
+    public GameObject RespawnPoint;
+    public GameObject Player;
+    public GameObject Platform;
     [SerializeField] private UIControl _uiControl;
 
     void Start()
     {
-        player.GetComponent<Transform>();
-        respawnPoint.GetComponent<Transform>();
+        Player.GetComponent<Transform>();
+        RespawnPoint.GetComponent<Transform>();
     }
 
     public void Respawn()
     {
-        player.transform.position = respawnPoint.transform.position;
+        Player.transform.position = RespawnPoint.transform.position;
     }
 
     private void Setup() {}

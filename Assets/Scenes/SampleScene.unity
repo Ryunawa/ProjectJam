@@ -2572,6 +2572,10 @@ PrefabInstance:
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 1534520321}
+    - target: {fileID: 241511045, guid: ab5b57b97fe6d4a45af9a21287f4f152, type: 3}
+      propertyPath: magicProjectile
+      value: 
+      objectReference: {fileID: 343348589741283723, guid: bd8090c3a73b7764da6bbe9615cbcb81, type: 3}
     - target: {fileID: 9078795870798555956, guid: ab5b57b97fe6d4a45af9a21287f4f152, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -10970,7 +10974,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 964673792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 104.1816, y: -623.7, z: 0}
+  m_LocalPosition: {x: 103.78, y: -623.79, z: 0}
   m_LocalScale: {x: 9.636691, y: 8.8984375, z: 1}
   m_Children: []
   m_Father: {fileID: 1332631717}
@@ -13054,6 +13058,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 4557600409195978032, guid: 1bb6e8952340b4d4dbf18c06c255d9a7, type: 3}
+      propertyPath: m_TagString
+      value: Transformable
+      objectReference: {fileID: 0}
     - target: {fileID: 4557600409195978033, guid: 1bb6e8952340b4d4dbf18c06c255d9a7, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -14229,8 +14237,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae740ef15eb10054d8886776f8333f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 1534520321}
-  player: {fileID: 241511037}
+  RespawnPoint: {fileID: 1534520321}
+  Player: {fileID: 241511037}
+  Platform: {fileID: 8781864998286440262, guid: 47083e14b49322e479c2f7c5d1251a88, type: 3}
   _uiControl: {fileID: 971251600}
 --- !u!4 &1166811354
 Transform:

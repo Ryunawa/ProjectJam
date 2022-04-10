@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3871f8f46682575439833fe9c3a90d01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trigger: {fileID: 0}
   _spawnPoint: {fileID: 7000049898282570958}
   _boulderDestroyer: {fileID: 7000049897800175908}
 --- !u!1 &7000049897075471108
@@ -147,7 +148,7 @@ GameObject:
   - component: {fileID: 7000049897075471111}
   m_Layer: 9
   m_Name: BoulderSystem
-  m_TagString: Untagged
+  m_TagString: Transformable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
