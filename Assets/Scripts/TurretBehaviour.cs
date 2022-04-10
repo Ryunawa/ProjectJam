@@ -3,10 +3,10 @@ using UnityEngine;
 public class TurretBehaviour : MonoBehaviour
 {
     // Feather prefab
-    public GameObject projectile;
+    [SerializeField] protected GameObject _projectile;
 
     // Shooting variables
-    private Transform _firePoint;
+    protected Transform _firePoint;
 
     // Shooting values
     protected float _fireCooldown = 1.5f;
@@ -26,18 +26,8 @@ public class TurretBehaviour : MonoBehaviour
     void Update()
     {
         if(Time.time - _lastShot > _fireCooldown && _isShooting)
-        {
-            if(projectile)
-                Debug.Log(name + " " + projectile.name);
-            else
-                Debug.Log("HA");
-            
-            if(_firePoint)
-                Debug.Log(_firePoint);
-            else
-                Debug.Log("AH");
-            
-            Instantiate(projectile, _firePoint.position, _firePoint.rotation);
+        {   
+            Instantiate(_projectile, _firePoint.position, _firePoint.rotation);
             _lastShot = Time.time;
         }
     }
