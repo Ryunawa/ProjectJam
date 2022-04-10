@@ -4,10 +4,7 @@ public class SquirrelBehaviour : TurretBehaviour
 {
     // Shooting variables
     private Transform _firePoint;
-
-    // Shooting values
-    private float _fireCooldown = 2.0f;
-
+    
     public Animator anim;
 
     // Start is called before the first frame update
