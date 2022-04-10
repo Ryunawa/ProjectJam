@@ -4,19 +4,21 @@ using UnityEngine.SceneManagement;
 public class PlayerBehaviour : MonoBehaviour
 {
     public GameObject respawnPoint;
-    public GameObject MenuEnd;
+    public GameObject magicProjectile;
 
     private Animator _animator;
     private Animator _shadowAnimator;
     private PlayerMovement _playerMovement;
-    //private PlayerCombat _playerCombat;
+
+    private Transform _magicalPoint;
+
     private void Start()
     {
         _playerMovement = this.GetComponent<PlayerMovement>();
-        //_playerCombat = this.GetComponent<PlayerCombat>();
 
-        _animator = this.GetComponent<Animator>();
-        _shadowAnimator = GameObject.Find("PlayerShadow").GetComponent<Animator>();
+        _magicalPoint = transform.Find("MagicalPoint");
+        _animator = GetComponent<Animator>();
+        //_shadowAnimator = GameObject.Find("PlayerShadow").GetComponent<Animator>();
     }
 
     public void Lose()
@@ -30,19 +32,9 @@ public class PlayerBehaviour : MonoBehaviour
         _shadowAnimator.SetTrigger("Die");
     }
 
-    private void OnDeathAnimationEnd()
+    private void LaunchMagicalAttack()
     {
-        // When animation ends, reset player position
-        transform.position = respawnPoint.transform.position;
-
-        _playerMovement.enabled = true;
-        //_playerCombat.enabled = true;
-    }
-
-    private void Win()
-    {
-        _playerMovement.enabled = false;
-        //_playerCombat.enabled = false;
+        Instantiate(magicProjectile, _magicalPoint.position, gameObject.transform.rotation);
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
