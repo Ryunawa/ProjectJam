@@ -72,7 +72,7 @@ public class CharacterController : MonoBehaviour
 	}
 
 
-	public void Move(float move, bool crouch, bool jump)
+	public void Move(float move, bool crouch, bool jump, bool leftAttack)
 	{
 		// If crouching, check to see if the character can stand up
 		if (!crouch && m_wasCrouching)
@@ -170,6 +170,7 @@ public class CharacterController : MonoBehaviour
 			_startedJumping = false;
 		}
 		playerAnimator.SetBool("isJumping", _isJumping);
+		playerAnimator.SetBool("isAttacking", leftAttack);
 	}
 
 

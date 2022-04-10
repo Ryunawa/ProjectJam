@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove = 0.0f;
     bool jump = false;
     bool crouch = false;
+    bool leftAttack;
     
     
     void start()
@@ -36,12 +38,22 @@ public class PlayerMovement : MonoBehaviour
         {
             crouch = false;
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            leftAttack = true;
+        }
+        
+        if (Input.GetMouseButtonUp(0))
+        {
+            leftAttack = false;
+        }
     }
 
     void FixedUpdate()
     {
         // To move our character
-        controller.Move(horizontalMove, crouch, jump);
+        controller.Move(horizontalMove, crouch, jump, leftAttack);
         jump = false;
     }
 }

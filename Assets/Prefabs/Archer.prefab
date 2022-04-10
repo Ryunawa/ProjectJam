@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de83413694b2b4141adb10bcd60bd830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 3135151843820843122, guid: 88b4c679fdbc95d46a39f3748a3fdace, type: 3}
+  _projectile: {fileID: 3135151843820843122, guid: 88b4c679fdbc95d46a39f3748a3fdace, type: 3}
   anim: {fileID: 941359483}
 --- !u!95 &941359483
 Animator:
