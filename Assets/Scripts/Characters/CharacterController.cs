@@ -23,9 +23,10 @@ public class CharacterController : MonoBehaviour
 	[SerializeField] private bool _startedJumping;
 	[SerializeField] private bool _canAttack;
 	[SerializeField] private bool _isAttacking;
+	
 	public bool IsAttacking => _isAttacking || _notSoFramePerfect >= 0f;
-	
-	
+
+	public bool Facing => m_FacingRight;
 
 	[Header("Events")]
 	[Space]
@@ -187,7 +188,7 @@ public class CharacterController : MonoBehaviour
 			_startedJumping = false;
 		}
 
-		_isAttacking = leftAttack;
+		_isAttacking = physicalAttack;
 		
 		playerAnimator.SetBool("isJumping", _isJumping);
 		playerAnimator.SetBool("isAttacking", physicalAttack);

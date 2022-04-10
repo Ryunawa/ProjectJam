@@ -22,14 +22,11 @@ public class Projectile : MonoBehaviour
             Debug.Log("Attacking player");
             CharacterController cc = collision.GetComponent<CharacterController>();
             bool facing = cc.IsFacing(transform.position);
-            Debug.Log("isFacing : " + facing);
             bool attacking = cc.IsAttacking;
-            Debug.Log("isAttacking : " + attacking);
             if (attacking && facing)
             {
                 Debug.Log("let's flip !");
                 Flip();
-                //Destroy(gameObject);
                 return;
             }
 

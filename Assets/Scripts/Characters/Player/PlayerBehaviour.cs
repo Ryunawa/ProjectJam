@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -34,7 +35,14 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void LaunchMagicalAttack()
     {
-        Instantiate(magicProjectile, _magicalPoint.position, gameObject.transform.rotation);
+        Quaternion q = gameObject.transform.rotation;
+
+        CharacterController cc = GetComponent<CharacterController>();
+        
+        if(!cc.Facing)
+            q.SetFromToRotation(Vector3.left, Vector3.right);
+        
+        Instantiate(magicProjectile, _magicalPoint.position, q);
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
