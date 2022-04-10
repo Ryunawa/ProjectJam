@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,6 @@ public class TextDisplay : MonoBehaviour
 
     private void OnEnable()
     {
-        
         Next();
     }
 
@@ -69,4 +69,11 @@ public class TextDisplay : MonoBehaviour
             Next();
     }
 
+    public void AddTexts(GameText[] gameTexts)
+    {
+        foreach (GameText gameText in gameTexts)
+            _texts.Add(gameText);
+        
+        Next();
+    }
 }
