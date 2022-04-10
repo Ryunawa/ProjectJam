@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class SquirrelBehaviour : TurretBehaviour
 {
-    // Shooting variables
-    private Transform _firePoint;
-    
     public Animator anim;
 
     // Start is called before the first frame update

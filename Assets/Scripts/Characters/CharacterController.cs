@@ -19,6 +19,10 @@ public class CharacterController : MonoBehaviour
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
+	[SerializeField] private bool _isJumping;
+	[SerializeField] private bool _startedJumping;
+	
+	
 
 	[Header("Events")]
 	[Space]
@@ -28,12 +32,16 @@ public class CharacterController : MonoBehaviour
 	[System.Serializable]
 	public class BoolEvent : UnityEvent<bool> { }
 
+	public Animator playerAnimator;
+	
 	public BoolEvent OnCrouchEvent;
 	private bool m_wasCrouching = false;
 
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
+		playerAnimator = GetComponent<Animator>();
+
 
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
@@ -55,6 +63,8 @@ public class CharacterController : MonoBehaviour
 			if (colliders[i].gameObject != gameObject)
 			{
 				m_Grounded = true;
+				_isJumping = false;
+				
 				if (!wasGrounded)
 					OnLandEvent.Invoke();
 			}
@@ -105,6 +115,8 @@ public class CharacterController : MonoBehaviour
 					OnCrouchEvent.Invoke(false);
 				}
 			}
+			
+			playerAnimator.SetBool("isCrouching", crouch);
 
 			// Move the character by finding the target velocity
 			
@@ -122,6 +134,15 @@ public class CharacterController : MonoBehaviour
 				m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 			}
 
+			if (move > 0 || move < 0)
+			{
+				playerAnimator.SetBool("isRunning", true);
+			}
+			else
+			{
+				playerAnimator.SetBool("isRunning", false);
+			}
+			
 			// If the input is moving the player right and the player is facing left...
 			if (move > 0 && !m_FacingRight)
 			{
@@ -140,8 +161,15 @@ public class CharacterController : MonoBehaviour
 		{
 			// Add a vertical force to the player.
 			m_Grounded = false;
+			_startedJumping = true;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce),  ForceMode2D.Impulse);
 		}
+		if (_startedJumping)
+		{
+			_isJumping = true;
+			_startedJumping = false;
+		}
+		playerAnimator.SetBool("isJumping", _isJumping);
 	}
 
 

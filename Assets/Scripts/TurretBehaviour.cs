@@ -6,7 +6,7 @@ public class TurretBehaviour : MonoBehaviour
     public GameObject projectile;
 
     // Shooting variables
-    private Transform _firePoint;
+    protected Transform _firePoint;
 
     // Shooting values
     protected float _fireCooldown = 1.5f;
