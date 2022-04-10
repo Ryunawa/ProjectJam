@@ -36,6 +36,8 @@ public class BonusPathManager : MonoBehaviour
             { BonusPath.BonusPathValue.Chococoin, 0 }
         };
     }
+
+    public bool CanUse(BonusPath.BonusPathValue value) => _pathProgress[value] >= 2;
     
     #region BonusPaths
 

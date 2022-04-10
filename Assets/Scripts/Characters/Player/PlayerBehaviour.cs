@@ -35,6 +35,9 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void LaunchMagicalAttack()
     {
+        if(!BonusPathManager.Instance.CanUse(BonusPath.BonusPathValue.Snowflake))
+            return;
+        
         Quaternion q = gameObject.transform.rotation;
 
         CharacterController cc = GetComponent<CharacterController>();

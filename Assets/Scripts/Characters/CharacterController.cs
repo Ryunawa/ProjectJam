@@ -21,7 +21,6 @@ public class CharacterController : MonoBehaviour
 	private Vector3 m_Velocity = Vector3.zero;
 	[SerializeField] private bool _isJumping;
 	[SerializeField] private bool _startedJumping;
-	[SerializeField] private bool _canAttack;
 	[SerializeField] private bool _isAttacking;
 	
 	public bool IsAttacking => _isAttacking || _notSoFramePerfect >= 0f;
@@ -190,9 +189,9 @@ public class CharacterController : MonoBehaviour
 
 		_isAttacking = physicalAttack;
 		
-		playerAnimator.SetBool("isJumping", _isJumping);
-		playerAnimator.SetBool("isAttacking", physicalAttack);
-		playerAnimator.SetBool("isCasting", magicAttack);
+		playerAnimator.SetBool("isJumping", _isJumping && BonusPathManager.Instance.CanUse(BonusPath.BonusPathValue.Boots));
+		playerAnimator.SetBool("isAttacking", physicalAttack && BonusPathManager.Instance.CanUse(BonusPath.BonusPathValue.Sword));
+		playerAnimator.SetBool("isCasting", magicAttack && BonusPathManager.Instance.CanUse(BonusPath.BonusPathValue.Snowflake));
 	}
 
 
