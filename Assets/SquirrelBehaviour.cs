@@ -7,7 +7,6 @@ public class SquirrelBehaviour : TurretBehaviour
 
     // Shooting values
     private float _fireCooldown = 2.0f;
-    private float _lastShot;
 
     public Animator anim;
 

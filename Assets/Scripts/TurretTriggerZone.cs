@@ -23,12 +23,14 @@ public class TurretTriggerZone : MonoBehaviour
         if (distance <= detectionRange)
         {
             _turrScript.IsShooting = true;
-            //_squirrelTurr.StartAnimationShooting(true);
+            if(_squirrelTurr)
+                _squirrelTurr.StartAnimationShooting(true);
         }
         else
         {
             _turrScript.IsShooting = false;
-            //_squirrelTurr.StartAnimationShooting(false);
+            if(_squirrelTurr)
+                _squirrelTurr.StartAnimationShooting(false);
         }
     }
 }

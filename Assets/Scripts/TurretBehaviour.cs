@@ -10,7 +10,7 @@ public class TurretBehaviour : MonoBehaviour
 
     // Shooting values
     private float _fireCooldown = 1.5f;
-    private float _lastShot;
+    protected float _lastShot;
     private bool _isShooting = false;
 
     public bool IsShooting { set => _isShooting = value; }
