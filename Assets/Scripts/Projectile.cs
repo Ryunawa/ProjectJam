@@ -17,6 +17,10 @@ public class Projectile : MonoBehaviour
     // Check the GameObject's tag the projectile met
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Player"))
+        {
+            GetComponent<DamageDealer>().DealDamage(collision.GetComponent<PlayerLife>());
+        }
         Destroy(gameObject);
     }
 }

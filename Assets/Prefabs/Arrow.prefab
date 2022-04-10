@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -7451312099650440602}
   - component: {fileID: 8124068396991027437}
   - component: {fileID: 7107818598685690336}
+  - component: {fileID: 4281370152541612144}
   m_Layer: 9
   m_Name: Arrow
   m_TagString: Untagged
@@ -98,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
+  _speed: 30
 --- !u!50 &8124068396991027437
 Rigidbody2D:
   serializedVersion: 4
@@ -135,3 +137,16 @@ CircleCollider2D:
   m_Offset: {x: 0.75187534, y: 0.00000008963052}
   serializedVersion: 2
   m_Radius: 0.1263136
+--- !u!114 &4281370152541612144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3135151843820843122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c6e90fdac7ee7409480ef295968c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 2

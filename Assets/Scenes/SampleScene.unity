@@ -183,7 +183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10071405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -70.33618, y: -528.945, z: -7.8039155}
+  m_LocalPosition: {x: -82.59613, y: -526.946, z: -7.8039155}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 111695615}
@@ -2338,6 +2338,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0fb0ed5bfc48643b5bc4e0e7a80812, type: 3}
+--- !u!1 &241511037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9078795870798555979, guid: ab5b57b97fe6d4a45af9a21287f4f152, type: 3}
+  m_PrefabInstance: {fileID: 278028882}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &241511038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241511037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83863cc885165a4db92182b2be278a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeBetweenRegenTicks: 10
+  _timeSinceLastRegenTick: 0
+  _startLifePoints: 10
+  _lifePoints: 0
+  _maxLifePoints: 10
 --- !u!1 &246691633
 GameObject:
   m_ObjectHideFlags: 0
@@ -2593,11 +2615,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9078795870798555956, guid: ab5b57b97fe6d4a45af9a21287f4f152, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 827.16
+      value: 814.9
       objectReference: {fileID: 0}
     - target: {fileID: 9078795870798555956, guid: ab5b57b97fe6d4a45af9a21287f4f152, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -406.299
+      value: -404.3
       objectReference: {fileID: 0}
     - target: {fileID: 9078795870798555956, guid: ab5b57b97fe6d4a45af9a21287f4f152, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5609,7 +5631,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -70.33618, y: -528.945, z: -7.8039155}
+  m_LocalPosition: {x: -82.59613, y: -526.946, z: -7.8039155}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1673085989}
@@ -14165,7 +14187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 1534520321}
-  player: {fileID: 9078795870798555979, guid: ab5b57b97fe6d4a45af9a21287f4f152, type: 3}
+  player: {fileID: 241511037}
   _uiControl: {fileID: 971251600}
 --- !u!4 &1166811354
 Transform:
