@@ -56,6 +56,7 @@ public class BonusPathManager : MonoBehaviour
                 GameManager.Instance.AddGameChoice(next);
             else if(_pathProgress[path] == _pathLength)
             {
+                GameManager.Instance.NextText();
                 GameManager.Instance.Light((int)path);
             }
         }

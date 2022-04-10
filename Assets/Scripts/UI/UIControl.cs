@@ -17,4 +17,6 @@ public class UIControl : MonoBehaviour
     public void AddChoice(GameChoice next) => _textDisplay.AddChoice(next);
 
     public void AddTexts(GameText[] gameTexts) => _textDisplay.AddTexts(gameTexts);
+
+    public void NextText() => _textDisplay.Next();
 }
