@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TextTrigger : MonoBehaviour
 {
+    private bool _wasAlreadyTriggered = false; 
     [SerializeField] private bool _triggerOnce;
-    [SerializeField] private bool _wasAlreadyTriggered; 
     [SerializeField] private GameText[] _gameTexts;
 
     public void Trigger()

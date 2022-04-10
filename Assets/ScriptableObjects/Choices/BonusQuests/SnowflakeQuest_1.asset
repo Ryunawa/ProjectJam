@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37eb83af7d99ab846baf3156a456d929, type: 3}
-  m_Name: 1
+  m_Name: SnowflakeQuest_1
   m_EditorClassIdentifier: 
   author: Princesse Haute
   _text: T'es de gauche ou de droite ?

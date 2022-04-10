@@ -19,7 +19,7 @@ public class SquirrelBehaviour : TurretBehaviour
     
     public void ShootArrow()
     {
-        Instantiate(projectile, _firePoint.position, _firePoint.rotation);
+        Instantiate(_projectile, _firePoint.position, _firePoint.rotation);
         _lastShot = Time.time;
     }
 }

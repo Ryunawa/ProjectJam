@@ -3,7 +3,7 @@ using UnityEngine;
 public class TurretBehaviour : MonoBehaviour
 {
     // Feather prefab
-    public GameObject projectile;
+    [SerializeField] protected GameObject _projectile;
 
     // Shooting variables
     protected Transform _firePoint;
@@ -18,7 +18,7 @@ public class TurretBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _firePoint = transform.Find("FirePoint");
+        _firePoint = GetComponentInChildren<Transform>();
         _lastShot = Time.time;
     }
 
@@ -26,8 +26,8 @@ public class TurretBehaviour : MonoBehaviour
     void Update()
     {
         if(Time.time - _lastShot > _fireCooldown && _isShooting)
-        {
-            Instantiate(projectile, _firePoint.position, _firePoint.rotation);
+        {   
+            Instantiate(_projectile, _firePoint.position, _firePoint.rotation);
             _lastShot = Time.time;
         }
     }
