@@ -13,8 +13,8 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove = 0.0f;
     bool jump = false;
     bool crouch = false;
-    bool leftAttack;
-    
+    bool physicalAttack = false;
+    bool magicAttack = false;
     
     void start()
     {
@@ -41,19 +41,29 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            leftAttack = true;
+            physicalAttack = true;
         }
         
         if (Input.GetMouseButtonUp(0))
         {
-            leftAttack = false;
+            physicalAttack = false;
+        }
+        
+        if (Input.GetMouseButtonDown(1))
+        {
+            magicAttack = true;
+        }
+        
+        if (Input.GetMouseButtonUp(1))
+        {
+            magicAttack = false;
         }
     }
 
     void FixedUpdate()
     {
         // To move our character
-        controller.Move(horizontalMove, crouch, jump, leftAttack);
+        controller.Move(horizontalMove, crouch, jump, physicalAttack, magicAttack);
         jump = false;
     }
 }
