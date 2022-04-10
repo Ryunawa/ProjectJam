@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         AddGameDialogs(dialogs);
     }
 
-    public void NextText() => _uiControl.NextText();
-
     public void Light(int index, bool lightUp = true) => _uiControl.Light(index, lightUp);
+
+    public void AddGameTexts(GameText[] gameTexts) => _uiControl.AddTexts(gameTexts);
 }
