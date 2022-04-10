@@ -12,9 +12,6 @@ public class GameManager : MonoBehaviour
         
     public static GameManager Instance => _instance;
 
-    public GameObject respawnPoint;
-    public GameObject player;
-
     private void Awake()
     {
         if(_instance == null)
@@ -30,7 +27,10 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
-
+    
+    public GameObject respawnPoint;
+    public GameObject player;
+    [SerializeField] private UIControl _uiControl;
 
     void Start()
     {
@@ -44,4 +44,19 @@ public class GameManager : MonoBehaviour
     }
 
     private void Setup() {}
+    
+    public void AddGameChoice(GameChoice next) => _uiControl.AddChoice(next);
+
+    public void AddGameDialogs(GameDialog[] dialogs) => _uiControl.AddDialogs(dialogs);
+    
+    public void AddGameDialog(GameDialog gameDialog)
+    {
+        GameDialog[] dialogs = { gameDialog };
+        
+        AddGameDialogs(dialogs);
+    }
+
+    public void NextText() => _uiControl.NextText();
+
+    public void Light(int index, bool lightUp = true) => _uiControl.Light(index, lightUp);
 }

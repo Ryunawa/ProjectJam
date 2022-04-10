@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,11 @@ public class LifeDisplay : MonoBehaviour
     [SerializeField] private Sprite _emptyHeart;
     
     [SerializeField] private Image[] _life;
+
+    private void OnEnable()
+    {
+        UpdateLifeDisplay(_life.Length * 2);
+    }
 
     public void UpdateLifeDisplay(int currentLife)
     {

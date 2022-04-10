@@ -30,7 +30,7 @@ public class RandomUIHelp : MonoBehaviour
     #region Dialogs
 
     [SerializeField] private GameDialog[] _dialogs;
-    [SerializeField] private DialogDisplay display;
+    [SerializeField] private TextDisplay display;
 
     public void AddRandomDialogMethod()
     {

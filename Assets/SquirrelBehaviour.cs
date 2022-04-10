@@ -19,13 +19,6 @@ public class SquirrelBehaviour : TurretBehaviour
         anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
     public void StartAnimationShooting(bool isShootingAnim)
     {
         anim.SetBool("isShooting", isShootingAnim);
