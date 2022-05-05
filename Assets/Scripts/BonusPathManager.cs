@@ -26,6 +26,9 @@ public class BonusPathManager : MonoBehaviour
 
     #endregion
 
+    [SerializeField]
+    private BonusGetter[] _bonusGetters;
+
     private void Setup()
     {
         _pathProgress = new Dictionary<BonusPath.BonusPathValue, bool>
@@ -54,11 +57,17 @@ public class BonusPathManager : MonoBehaviour
         _pathProgress[path] = goodEnd;
 
         if (goodEnd)
-            GameManager.Instance.Light((int)path);
+            GetBonus((int)path);
         else
             GameManager.Instance.Respawn();
         
         GameManager.Instance.NextText();
+    }
+
+    private void GetBonus(int path)
+    {
+        GameManager.Instance.Light(path);
+        _bonusGetters[path].gameObject.SetActive(false);
     }
 
     #endregion

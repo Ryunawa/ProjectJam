@@ -17,6 +17,8 @@ public class BonusGetter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        Debug.Log("j'appelle ça un on trigger enter");
+        
         if (col.gameObject.CompareTag("Player"))
         {
             _trigger.Trigger();
