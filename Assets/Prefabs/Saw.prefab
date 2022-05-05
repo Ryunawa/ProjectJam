@@ -137,6 +137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypointsFirstPattern: []
   _speed: 8
+  _timeBetweenDamageTicks: 0.5
+  _timeSinceLastDamageTicks: 0
   _spriteOff: {fileID: 0}
 --- !u!114 &4981818364847244753
 MonoBehaviour:
@@ -150,4 +152,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c6e90fdac7ee7409480ef295968c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 2
+  _damage: 1

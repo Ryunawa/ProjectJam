@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class SawBehaviour : MonoBehaviour
@@ -12,6 +14,8 @@ public class SawBehaviour : MonoBehaviour
     [SerializeField]
     private float _speed = 20.0f;
     private float _rotSpeed = -360.0f;
+    [SerializeField] private float _timeBetweenDamageTicks;
+    [SerializeField] private float _timeSinceLastDamageTicks;
     private bool _isEnabled = true;
 
     [SerializeField]
@@ -75,11 +79,29 @@ public class SawBehaviour : MonoBehaviour
     #endregion
 
     // Check if the saw shit the player
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (collision.CompareTag("Player"))
+        if (!other.gameObject.CompareTag("Player")) return;
+        
+        GetComponent<DamageDealer>().DealDamage(other.gameObject.GetComponent<PlayerLife>());
+        _timeSinceLastDamageTicks = _timeBetweenDamageTicks;
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (!other.gameObject.CompareTag("Player")) return;
+        _timeSinceLastDamageTicks -= Time.deltaTime;
+
+        if (!(_timeSinceLastDamageTicks <= 0f)) return;
+        GetComponent<DamageDealer>().DealDamage(other.gameObject.GetComponent<PlayerLife>());
+        _timeSinceLastDamageTicks = _timeBetweenDamageTicks;
+    }
+    
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
         {
-            GetComponent<DamageDealer>().DealDamage(collision.GetComponent<PlayerLife>());
+            GetComponent<DamageDealer>().DealDamage(other.gameObject.GetComponent<PlayerLife>());
         }
     }
 }

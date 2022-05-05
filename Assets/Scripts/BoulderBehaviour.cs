@@ -17,16 +17,19 @@ public class BoulderBehaviour : MonoBehaviour
         _trigger = GetComponent<TextTrigger>();
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject == _boulderDestroyer)
+            ResetPos();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            GetComponent<DamageDealer>().DealDamage(collision.gameObject.GetComponent<PlayerLife>());
-            GameManager.Instance.Respawn();
-            _trigger.Trigger();
-        }
-        else if(collision.gameObject == _boulderDestroyer)
-            ResetPos();
+        if (!collision.gameObject.CompareTag("Player")) return;
+        
+        GetComponent<DamageDealer>().DealDamage(collision.gameObject.GetComponent<PlayerLife>());
+        GameManager.Instance.Respawn();
+        _trigger.Trigger();
     }
 
     private void ResetPos()
